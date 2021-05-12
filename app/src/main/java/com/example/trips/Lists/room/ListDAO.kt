@@ -1,9 +1,7 @@
 package com.example.trips.Lists.room
 
 import androidx.lifecycle.LiveData
-//import androidx.room.Query
 
-//@Dao
 interface ListDAO {
 //    @Query("SELECT * FROM list")
 //    fun getAll(): LiveData<List<com.example.trips.Lists.model.List>>
