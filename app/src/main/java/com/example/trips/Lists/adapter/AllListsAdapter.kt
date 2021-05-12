@@ -1,11 +1,11 @@
 package com.example.trips.Lists.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.trips.Lists.model.List
-import com.example.trips.Lists.repository.AllListRepository
+import com.example.trips.Localities.view.Locality
 import com.example.trips.databinding.ListsItemBinding
 import org.koin.core.KoinComponent
 
@@ -17,6 +17,19 @@ class AllListsAdapter : RecyclerView.Adapter<AllListsAdapter.MyViewHolder>(), Ko
 
     inner class MyViewHolder(val binding: ListsItemBinding) :
             RecyclerView.ViewHolder(binding.root) {
+        fun bind() {
+            val view = binding.root
+            binding.cardList.setOnClickListener {
+                AllListsAdapter.lists.forEach {
+                    if (binding.nameList.text == it.name) {
+                        if (it.description == "all") {
+                            val intent = Intent(view.context, Locality::class.java)
+                            view.context.startActivity(intent)
+                        }
+                    }
+                }
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -25,20 +38,13 @@ class AllListsAdapter : RecyclerView.Adapter<AllListsAdapter.MyViewHolder>(), Ko
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+
+        holder.bind()
+
         val allList = AllListsAdapter.lists[position]
 
         holder.binding.nameList.text = allList.name
         holder.binding.quantity.text = allList.quantity.toString()
-
-//        holder.binding.cardList.setOnClickListener {
-//            AllListsAdapter.lists.forEach {
-//                if (holder.binding.nameList.text == it.name) {
-//                    println(it.name)
-//                    println(it.id)
-//                }
-//            }
-//        }
-
     }
 
     override fun getItemCount(): Int {

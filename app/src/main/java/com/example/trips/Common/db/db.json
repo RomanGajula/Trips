@@ -11,22 +11,26 @@
     {
       "id": 1,
       "name": "Все населённые пункты",
-      "quantity": "355"
+      "quantity": "355",
+      "description": "all"
     },
     {
       "id": 2,
       "name": "Евангелизм",
-      "quantity": "25"
+      "quantity": "25",
+      "description": "evangelism"
     },
     {
       "id": 3,
       "name": "Богослужения",
-      "quantity": "55"
+      "quantity": "55",
+      "description": "worshipServices"
     },
     {
       "id": 4,
       "name": "Не пройденные населённые пункты",
-      "quantity": "155"
+      "quantity": "155",
+      "description": "wasNot"
     }
   ]
 }
