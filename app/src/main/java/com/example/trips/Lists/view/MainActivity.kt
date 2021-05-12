@@ -48,15 +48,6 @@ class MainActivity : AppCompatActivity(), KoinComponent {
             @RequiresApi(Build.VERSION_CODES.R)
             override fun onResponse(call: Call<MutableList<LocalityModel>>, response: Response<MutableList<LocalityModel>>) {
                 val employee = response.body()
-                println(employee)
-//                employee?.let { employeeAdapter.setData(it) }
-//                if (EmployeeAdapter.employeesList.isNotEmpty()) {
-//                    binding.progressBar.visibility = View.INVISIBLE
-//                }
-//                if (employee!!.isEmpty()) {
-//                    Toast.makeText(applicationContext, "No data available!", Toast.LENGTH_LONG).show()
-//                    binding.progressBar.visibility = View.INVISIBLE
-//                }
             }
         })
 
