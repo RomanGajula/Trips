@@ -1,18 +1,22 @@
 package com.example.trips.Common.api
 
+import com.example.trips.Lists.model.List
 import com.example.trips.Localities.model.LocalityModel
 import retrofit2.Call
 import retrofit2.http.*
 
 
 interface Api {
-//    @POST("employees")
-//    fun addEmployee(
-//            @Body employee: Employee
-//    ): Call<Employee>
-//
+//    @POST("list")
+//    fun addList(
+//            @Body list: com.example.trips.Lists.model.List
+//    ): Call<com.example.trips.Lists.model.List>
+
     @GET("locatity")
     fun getLocality(): Call<MutableList<LocalityModel>>
+
+    @GET("list")
+    fun getLists(): Call<MutableList<List>>
 //
 //    @GET("employees")
 //    fun getEmployeeSearch(@Query("employee_name") employee_name: String): Call<List<Employee>>

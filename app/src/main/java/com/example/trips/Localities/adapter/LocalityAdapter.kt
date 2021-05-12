@@ -30,7 +30,7 @@ class LocalityAdapter : RecyclerView.Adapter<LocalityAdapter.LocalityViewHolder>
     }
 
     override fun getItemCount(): Int {
-        return AllListRepository.allList.size
+        return 5
     }
 
 }

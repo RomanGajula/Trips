@@ -10,6 +10,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.trips.Common.utils.Constants.Companion.BASE_URL
 import com.example.trips.Lists.adapter.AllListsAdapter
+import com.example.trips.Lists.model.List
+import com.example.trips.Lists.viewmodel.AllListsViewModel
 import com.example.trips.Localities.model.LocalityModel
 import com.example.trips.Localities.repository.LocalityRepository
 import com.example.trips.Localities.viewModel.LocalityViewModel
@@ -24,7 +26,7 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity(), KoinComponent {
 
     private val allListsAdapter by lazy { AllListsAdapter() }
-    val localityViewModel: LocalityViewModel by inject()
+    val allListsViewModel: AllListsViewModel by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,15 +41,16 @@ class MainActivity : AppCompatActivity(), KoinComponent {
             recyclerView.adapter = allListsAdapter
         }
 
-        val callList: Call<MutableList<LocalityModel>> = localityViewModel.getLocality()
-        callList.enqueue(object : Callback<MutableList<LocalityModel>> {
-            override fun onFailure(call: Call<MutableList<LocalityModel>>, t: Throwable) {
+        val callList: Call<MutableList<List>> = allListsViewModel.getLists()
+        callList.enqueue(object : Callback<MutableList<List>> {
+            override fun onFailure(call: Call<MutableList<List>>, t: Throwable) {
                 println(t)
             }
 
             @RequiresApi(Build.VERSION_CODES.R)
-            override fun onResponse(call: Call<MutableList<LocalityModel>>, response: Response<MutableList<LocalityModel>>) {
-                val employee = response.body()
+            override fun onResponse(call: Call<MutableList<List>>, response: Response<MutableList<List>>) {
+                val allList = response.body()
+                allList?.let { allListsAdapter.setData(it.toMutableList()) }
             }
         })
 
