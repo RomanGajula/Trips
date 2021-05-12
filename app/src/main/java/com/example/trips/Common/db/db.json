@@ -1,5 +1,10 @@
 {
-  "employees": [
-
+  "locatity": [
+    {
+      "id": 1,
+      "name": "Аснашаны",
+      "distance": "8",
+      "tellPastor": "079322438"
+    }
   ]
 }

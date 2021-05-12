@@ -1,5 +1,6 @@
-package com.example.employee_directory.api
+package com.example.trips.Common.api
 
+import com.example.trips.Localities.model.LocalityModel
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -10,8 +11,8 @@ interface Api {
 //            @Body employee: Employee
 //    ): Call<Employee>
 //
-//    @GET("employees")
-//    fun getEmployee(): Call<MutableList<Employee>>
+    @GET("locatity")
+    fun getLocality(): Call<MutableList<LocalityModel>>
 //
 //    @GET("employees")
 //    fun getEmployeeSearch(@Query("employee_name") employee_name: String): Call<List<Employee>>

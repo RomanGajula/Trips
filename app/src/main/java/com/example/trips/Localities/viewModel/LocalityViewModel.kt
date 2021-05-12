@@ -1,4 +1,16 @@
 package com.example.trips.Localities.viewModel
 
-class LocalityViewModel {
+import androidx.lifecycle.ViewModel
+import com.example.trips.Localities.model.LocalityModel
+import com.example.trips.Localities.repository.LocalityRepository
+import org.koin.core.KoinComponent
+import org.koin.core.inject
+import retrofit2.Call
+
+class LocalityViewModel: ViewModel(), KoinComponent {
+    val localityRepository: LocalityRepository by inject()
+
+    fun getLocality(): Call<MutableList<LocalityModel>> {
+        return localityRepository.getLocality()
+    }
 }

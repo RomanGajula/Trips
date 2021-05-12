@@ -1,6 +1,8 @@
 package com.example.trips.Localities.repository
 
+import com.example.trips.Common.api.RetrofitInstance
 import com.example.trips.Localities.model.LocalityModel
+import retrofit2.Call
 
 class LocalityRepository {
     companion object {
@@ -14,4 +16,9 @@ class LocalityRepository {
             LocalityModel(null, "Баронча", 60, "078308377")
         )
     }
+
+    fun getLocality(): Call<MutableList<LocalityModel>> {
+        return RetrofitInstance.api.getLocality()
+    }
+
 }

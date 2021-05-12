@@ -1,4 +1,4 @@
-package com.example.employee_directory.utils
+package com.example.trips.Common.utils
 
 class Constants {
     companion object {
