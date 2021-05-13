@@ -21,4 +21,11 @@ class LocalityRepository {
         return RetrofitInstance.api.getLocality()
     }
 
+    fun updateLocality(id: Int, locality: LocalityModel): Call<LocalityModel> {
+        return RetrofitInstance.api.updateList(id, locality)
+    }
+
+    fun getLocalityById(id: Int): Call<List<LocalityModel>> {
+        return RetrofitInstance.api.getLocalityById(id)
+    }
 }

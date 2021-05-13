@@ -17,8 +17,4 @@ class AllListRepository {
     fun getLists(): Call<MutableList<List>> {
         return RetrofitInstance.api.getLists()
     }
-
-    fun updateList(id: Int, list: List): Call<List> {
-        return RetrofitInstance.api.updateList(id, list)
-    }
 }

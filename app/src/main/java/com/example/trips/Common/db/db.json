@@ -1,16 +1,20 @@
 {
   "locality": [
     {
+      "distance": 8,
+      "evangelism": 0,
       "id": 1,
       "name": "Аснашаны",
-      "distance": "8",
-      "tellPastor": "078322438"
+      "tellPastor": "078322438",
+      "worshipServices": 1
     },
     {
+      "distance": 60,
+      "evangelism": 1,
       "id": 2,
       "name": "Баронча",
-      "distance": "60",
-      "tellPastor": "078308377"
+      "tellPastor": "078308377",
+      "worshipServices": 1
     },
     {
       "id": 3,
@@ -25,10 +29,12 @@
       "tellPastor": "078302341"
     },
     {
+      "distance": 10,
+      "evangelism": 0,
       "id": 5,
       "name": "Октябрьское",
-      "distance": "10",
-      "tellPastor": "078302662"
+      "tellPastor": "078302662",
+      "worshipServices": 1
     },
     {
       "id": 6,
@@ -69,7 +75,5 @@
       "description": "wasNot"
     }
   ],
-  "worshipServices": [
-
-  ]
+  "worshipServices": []
 }

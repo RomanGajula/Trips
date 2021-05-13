@@ -31,9 +31,10 @@ class LocalityAdapter : RecyclerView.Adapter<LocalityAdapter.LocalityViewHolder>
     inner class LocalityViewHolder(val binding: LocalityItemBinding) :
             RecyclerView.ViewHolder(binding.root) {
         fun bind() {
+            val location = locality[bindingAdapterPosition]
             val view = binding.root
             binding.addInList.setOnClickListener {
-                AddLocalityDialog().show(supportFragmentManager,"AddLocality")
+                AddLocalityDialog(location.id!!).show(supportFragmentManager,"AddLocality")
             }
         }
     }
