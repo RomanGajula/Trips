@@ -5,14 +5,50 @@
       "name": "Аснашаны",
       "distance": "8",
       "tellPastor": "079322438"
+    },
+    {
+      "id": 2,
+      "name": "Баронча",
+      "distance": "60",
+      "tellPastor": "078308377"
+    },
+    {
+      "id": 3,
+      "name": "Цапок",
+      "distance": "15",
+      "tellPastor": "078303845"
+    },
+    {
+      "id": 4,
+      "name": "Палария",
+      "distance": "13",
+      "tellPastor": "078302341"
+    },
+    {
+      "id": 5,
+      "name": "Октябрьское",
+      "distance": "10",
+      "tellPastor": "078302662"
+    },
+    {
+      "id": 6,
+      "name": "Добружа",
+      "distance": "6",
+      "tellPastor": "078309283"
+    },
+    {
+      "id": 7,
+      "name": "Елизоветовка",
+      "distance": "7",
+      "tellPastor": "078306375"
     }
   ],
   "list": [
     {
+      "description": "all",
       "id": 1,
       "name": "Все населённые пункты",
-      "quantity": "355",
-      "description": "all"
+      "quantity": 355
     },
     {
       "id": 2,

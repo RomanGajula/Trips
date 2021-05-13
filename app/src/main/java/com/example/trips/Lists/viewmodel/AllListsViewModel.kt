@@ -14,4 +14,8 @@ class AllListsViewModel : ViewModel(), KoinComponent {
     fun getLists(): Call<MutableList<List>> {
         return repository.getLists()
     }
+
+    fun updateEmployee(id: Int, list: List): Call<List> {
+        return repository.updateList(id, list)
+    }
 }

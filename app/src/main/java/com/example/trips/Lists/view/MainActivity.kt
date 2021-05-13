@@ -4,8 +4,6 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
@@ -14,6 +12,7 @@ import com.example.trips.Common.utils.Constants.Companion.BASE_URL
 import com.example.trips.Lists.adapter.AllListsAdapter
 import com.example.trips.Lists.model.List
 import com.example.trips.Lists.viewmodel.AllListsViewModel
+import com.example.trips.Localities.adapter.LocalityAdapter
 import com.example.trips.Localities.model.LocalityModel
 import com.example.trips.Localities.repository.LocalityRepository
 import com.example.trips.Localities.view.Locality
@@ -27,6 +26,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MainActivity : AppCompatActivity(), KoinComponent {
+
+    // json-server --watch app/src/main/java/com/example/trips/Common/db/db.json --routes app/src/main/java/com/example/trips/Common/db/routes.json
 
     private val allListsAdapter by lazy { AllListsAdapter() }
     val allListsViewModel: AllListsViewModel by inject()
@@ -44,8 +45,7 @@ class MainActivity : AppCompatActivity(), KoinComponent {
             recyclerView.adapter = allListsAdapter
         }
 
-        val callList: Call<MutableList<List>> = allListsViewModel.getLists()
-        callList.enqueue(object : Callback<MutableList<List>> {
+        allListsViewModel.getLists().enqueue(object : Callback<MutableList<List>> {
             override fun onFailure(call: Call<MutableList<List>>, t: Throwable) {
                 println(t)
             }

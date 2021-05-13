@@ -27,6 +27,6 @@ interface Api {
 //    @DELETE("employees/{id}")
 //    fun deleteEmployee(@Path("id") id: Int): Call<Void>
 //
-//    @PUT("employees/{id}")
-//    fun updateEmployee(@Path("id") id: Int, @Body employee: Employee): Call<Employee>
+    @PUT("list/{id}")
+    fun updateList(@Path("id") id: Int, @Body list: List): Call<List>
 }
