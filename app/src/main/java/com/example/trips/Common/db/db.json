@@ -1,10 +1,10 @@
 {
-  "locatity": [
+  "locality": [
     {
       "id": 1,
       "name": "Аснашаны",
       "distance": "8",
-      "tellPastor": "079322438"
+      "tellPastor": "078322438"
     },
     {
       "id": 2,
@@ -68,5 +68,8 @@
       "quantity": "155",
       "description": "wasNot"
     }
+  ],
+  "worshipServices": [
+
   ]
 }

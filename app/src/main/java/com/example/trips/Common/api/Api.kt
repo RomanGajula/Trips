@@ -12,7 +12,7 @@ interface Api {
 //            @Body list: com.example.trips.Lists.model.List
 //    ): Call<com.example.trips.Lists.model.List>
 
-    @GET("locatity")
+    @GET("locality")
     fun getLocality(): Call<MutableList<LocalityModel>>
 
     @GET("list")
@@ -27,6 +27,6 @@ interface Api {
 //    @DELETE("employees/{id}")
 //    fun deleteEmployee(@Path("id") id: Int): Call<Void>
 //
-    @PUT("list/{id}")
+    @PUT("locality/{id}")
     fun updateList(@Path("id") id: Int, @Body list: List): Call<List>
 }

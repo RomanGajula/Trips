@@ -4,5 +4,7 @@ class LocalityModel(
     var id: Int? = null,
     var name: String? = null,
     var distance: Int? = null,
-    var tellPastor: String? = null
+    var tellPastor: String? = null,
+    var worshipServices: Int? = null,
+    var evangelism: Int? = null
 )

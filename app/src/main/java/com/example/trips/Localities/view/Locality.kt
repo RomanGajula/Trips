@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.trips.Common.dialog.AddLocalityDialog
 import com.example.trips.Lists.model.List
 import com.example.trips.Lists.viewmodel.AllListsViewModel
 import com.example.trips.Localities.adapter.LocalityAdapter
@@ -46,9 +47,8 @@ class Locality : AppCompatActivity(), KoinComponent {
             @RequiresApi(Build.VERSION_CODES.R)
             override fun onResponse(call: Call<MutableList<LocalityModel>>, response: Response<MutableList<LocalityModel>>) {
                 val localityList = response.body()
-                localityList?.let { localityAdapter.setData(it.toMutableList()) }
+                localityList?.let { localityAdapter.setData(it.toMutableList(), supportFragmentManager) }
             }
         })
-
     }
 }
