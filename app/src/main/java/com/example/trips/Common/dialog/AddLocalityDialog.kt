@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.DialogFragment
+import com.example.trips.Lists.repository.AllListRepository
 import com.example.trips.Localities.model.LocalityModel
 import com.example.trips.Localities.viewModel.LocalityViewModel
 import org.koin.core.KoinComponent
@@ -20,15 +21,16 @@ import retrofit2.Response
 class AddLocalityDialog(id: Int) : DialogFragment(), KoinComponent {
 
     val localityViewModel: LocalityViewModel by inject()
-    private val items = arrayOf("Богослужение", "Евангелизм", "Богослужение и евангелизм", "Очистить существующие данные")
+    val allListRepository: AllListRepository by inject()
+    private val items = arrayOf(
+            allListRepository.worshipServices,
+            allListRepository.evangelism,
+            allListRepository.worshipServicesOrEvangelism,
+            allListRepository.clearDate)
     var checkItem: Boolean = false
     var idLocation: Int = id
     lateinit var location: LocalityModel
     var selectedItem = String()
-    var DIALOG_DATE = 1
-    var myYear = 2011
-    var myMonth = 2
-    var myDay = 3
     var date = DateDialog()
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -59,24 +61,26 @@ class AddLocalityDialog(id: Int) : DialogFragment(), KoinComponent {
                                 }
                             }
                         })
+                        if (items[item] != allListRepository.clearDate) {
+                            date.show(it.supportFragmentManager, "DateDialog")
+                        }
                     }
                     .setPositiveButton("OK"
                     ) { dialog, id ->
-                        date.show(it.supportFragmentManager, "DateDialog")
                         if (!checkItem) {
                             Toast.makeText(
                                     activity, "Вы ничего не выбрали!",
                                     Toast.LENGTH_LONG
                             ).show()
                         } else {
-                            if (selectedItem == "Богослужение") {
+                            if (selectedItem == allListRepository.worshipServices) {
                                 location.worshipServices = location.worshipServices!! + 1
-                            } else if (selectedItem == "Евангелизм") {
+                            } else if (selectedItem == allListRepository.worshipServices) {
                                 location.evangelism = location.evangelism!! + 1
-                            } else if (selectedItem == "Богослужение и евангелизм") {
+                            } else if (selectedItem == allListRepository.worshipServicesOrEvangelism) {
                                 location.evangelism = location.evangelism!! + 1
                                 location.worshipServices = location.worshipServices!! + 1
-                            } else if (selectedItem == "Очистить существующие данные") {
+                            } else if (selectedItem == allListRepository.clearDate) {
                                 location.evangelism = 0
                                 location.worshipServices = 0
                             }
@@ -94,6 +98,9 @@ class AddLocalityDialog(id: Int) : DialogFragment(), KoinComponent {
 
                                 @RequiresApi(Build.VERSION_CODES.R)
                                 override fun onResponse(call: Call<LocalityModel>, response: Response<LocalityModel>) {
+                                    println(allListRepository.clearDate)
+                                    println(allListRepository.worshipServices)
+                                    println(allListRepository.evangelism)
                                 }
                             })
                         }

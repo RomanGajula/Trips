@@ -36,13 +36,15 @@
       "id": 5,
       "name": "Октябрьское",
       "tellPastor": "078302662",
-      "worshipServices": 1
+      "worshipServices": 0
     },
     {
+      "distance": 6,
+      "evangelism": 0,
       "id": 6,
       "name": "Добружа",
-      "distance": "6",
-      "tellPastor": "078309283"
+      "tellPastor": "078309283",
+      "worshipServices": 0
     },
     {
       "id": 7,

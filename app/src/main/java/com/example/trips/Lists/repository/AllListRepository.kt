@@ -13,6 +13,10 @@ class AllListRepository {
 //                List(null, "Не пройденные населённые пункты", 155)
 //        )
 //    }
+    var worshipServices = "Богослужение"
+    var evangelism = "Евангелизм"
+    var worshipServicesOrEvangelism = "Богослужение и евангелизм"
+    var clearDate = "Очистить существующие данные"
 
     fun getLists(): Call<MutableList<List>> {
         return RetrofitInstance.api.getLists()
