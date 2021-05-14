@@ -3,12 +3,9 @@ package com.example.trips.Common.dialog
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.Dialog
-import android.graphics.Color
 import android.os.Bundle
-import android.provider.CalendarContract
 import android.widget.DatePicker
 import androidx.fragment.app.DialogFragment
-import com.example.trips.R
 import java.util.*
 
 class DateDialog : DialogFragment(), DatePickerDialog.OnDateSetListener {
@@ -21,7 +18,6 @@ class DateDialog : DialogFragment(), DatePickerDialog.OnDateSetListener {
         val month = calendar.get(Calendar.MONTH);
         val day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        // Create a new instance of DatePickerDialog and return it
         return DatePickerDialog(requireActivity(), this, year, month, day)
     }
 
