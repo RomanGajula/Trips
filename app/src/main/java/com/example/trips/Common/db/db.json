@@ -17,6 +17,8 @@
       "worshipServices": 1
     },
     {
+      "dateEvangelism": "",
+      "dateWorshipServices": "",
       "distance": 15,
       "evangelism": 0,
       "id": 3,
@@ -25,12 +27,18 @@
       "worshipServices": 0
     },
     {
+      "dateEvangelism": "",
+      "dateWorshipServices": "",
+      "distance": 13,
+      "evangelism": 0,
       "id": 4,
       "name": "Палария",
-      "distance": "13",
-      "tellPastor": "078302341"
+      "tellPastor": "078302341",
+      "worshipServices": 0
     },
     {
+      "dateEvangelism": "",
+      "dateWorshipServices": "",
       "distance": 10,
       "evangelism": 0,
       "id": 5,
@@ -39,6 +47,8 @@
       "worshipServices": 0
     },
     {
+      "dateEvangelism": "",
+      "dateWorshipServices": "",
       "distance": 6,
       "evangelism": 0,
       "id": 6,
@@ -47,10 +57,14 @@
       "worshipServices": 0
     },
     {
+      "dateEvangelism": "",
+      "dateWorshipServices": "",
+      "distance": 7,
+      "evangelism": 0,
       "id": 7,
       "name": "Елизоветовка",
-      "distance": "7",
-      "tellPastor": "078306375"
+      "tellPastor": "078306375",
+      "worshipServices": 0
     }
   ],
   "list": [

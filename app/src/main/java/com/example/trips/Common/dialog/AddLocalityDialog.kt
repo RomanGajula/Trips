@@ -1,7 +1,6 @@
 package com.example.trips.Common.dialog
 
 import android.app.AlertDialog
-import android.app.DatePickerDialog
 import android.app.Dialog
 import android.os.Build
 import android.os.Bundle
@@ -29,8 +28,15 @@ class AddLocalityDialog(id: Int) : DialogFragment(), KoinComponent {
             allListRepository.clearDate)
     var checkItem: Boolean = false
     var idLocation: Int = id
-    lateinit var location: LocalityModel
+    var location = LocalityModel()
     var selectedItem = String()
+
+    companion object {
+        var year = 0
+        var month = 0
+        var day = 0
+    }
+
     var date = DateDialog()
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -56,7 +62,9 @@ class AddLocalityDialog(id: Int) : DialogFragment(), KoinComponent {
                                             it.distance,
                                             it.tellPastor,
                                             it.worshipServices,
-                                            it.evangelism
+                                            it.evangelism,
+                                            it.dateWorshipServices,
+                                            it.dateEvangelism
                                     )
                                 }
                             }
@@ -73,17 +81,7 @@ class AddLocalityDialog(id: Int) : DialogFragment(), KoinComponent {
                                     Toast.LENGTH_LONG
                             ).show()
                         } else {
-                            if (selectedItem == allListRepository.worshipServices) {
-                                location.worshipServices = location.worshipServices!! + 1
-                            } else if (selectedItem == allListRepository.worshipServices) {
-                                location.evangelism = location.evangelism!! + 1
-                            } else if (selectedItem == allListRepository.worshipServicesOrEvangelism) {
-                                location.evangelism = location.evangelism!! + 1
-                                location.worshipServices = location.worshipServices!! + 1
-                            } else if (selectedItem == allListRepository.clearDate) {
-                                location.evangelism = 0
-                                location.worshipServices = 0
-                            }
+                            checkIfElse()
                             localityViewModel.updateLocality(idLocation,
                                     LocalityModel(
                                             idLocation,
@@ -91,16 +89,15 @@ class AddLocalityDialog(id: Int) : DialogFragment(), KoinComponent {
                                             location.distance,
                                             location.tellPastor,
                                             location.worshipServices,
-                                            location.evangelism)).enqueue(object : Callback<LocalityModel> {
+                                            location.evangelism,
+                                            location.dateWorshipServices,
+                                            location.dateEvangelism)).enqueue(object : Callback<LocalityModel> {
                                 override fun onFailure(call: Call<LocalityModel>, t: Throwable) {
                                     println(t)
                                 }
 
                                 @RequiresApi(Build.VERSION_CODES.R)
                                 override fun onResponse(call: Call<LocalityModel>, response: Response<LocalityModel>) {
-                                    println(allListRepository.clearDate)
-                                    println(allListRepository.worshipServices)
-                                    println(allListRepository.evangelism)
                                 }
                             })
                         }
@@ -110,4 +107,38 @@ class AddLocalityDialog(id: Int) : DialogFragment(), KoinComponent {
             builder.create()
         } ?: throw IllegalStateException("Activity cannot be null")
     }
+
+    fun checkIfElse() {
+        when (selectedItem) {
+            allListRepository.worshipServices -> {
+                location.dateWorshipServices = "${day}.${month}.${year}"
+            }
+            allListRepository.evangelism -> {
+                location.dateEvangelism = "${day}.${month}.${year}"
+            }
+            allListRepository.worshipServicesOrEvangelism -> {
+                location.dateEvangelism = "${day}.${month}.${year}"
+                location.dateWorshipServices = "${day}.${month}.${year}"
+            }
+        }
+        when (selectedItem) {
+            allListRepository.worshipServices -> {
+                location.worshipServices = location.worshipServices!! + 1
+            }
+            allListRepository.evangelism -> {
+                location.evangelism = location.evangelism!! + 1
+            }
+            allListRepository.worshipServicesOrEvangelism -> {
+                location.evangelism = location.evangelism!! + 1
+                location.worshipServices = location.worshipServices!! + 1
+            }
+            allListRepository.clearDate -> {
+                location.evangelism = 0
+                location.worshipServices = 0
+                location.dateWorshipServices = ""
+                location.dateEvangelism = ""
+            }
+        }
+    }
+
 }

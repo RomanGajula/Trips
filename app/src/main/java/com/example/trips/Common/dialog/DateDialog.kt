@@ -12,9 +12,6 @@ import com.example.trips.R
 import java.util.*
 
 class DateDialog : DialogFragment(), DatePickerDialog.OnDateSetListener {
-    private var year = 0
-    private var month = 0
-    private var day = 0
 
     @SuppressLint("ResourceType")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -29,8 +26,8 @@ class DateDialog : DialogFragment(), DatePickerDialog.OnDateSetListener {
     }
 
     override fun onDateSet(view: DatePicker, year: Int, month: Int, day: Int) {
-        this.year = year;
-        this.month = month;
-        this.day = day;
+        AddLocalityDialog.year = year
+        AddLocalityDialog.month = month
+        AddLocalityDialog.day = day
     }
 }

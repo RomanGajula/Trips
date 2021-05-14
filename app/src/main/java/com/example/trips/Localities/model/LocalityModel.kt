@@ -11,5 +11,6 @@ class LocalityModel(
         var tellPastor: String? = null,
         var worshipServices: Int? = 0,
         var evangelism: Int? = 0,
-        var date: String? = null
+        var dateWorshipServices: String? = null,
+        var dateEvangelism: String? = null
 )
