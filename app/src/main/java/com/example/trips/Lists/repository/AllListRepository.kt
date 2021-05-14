@@ -1,6 +1,6 @@
 package com.example.trips.Lists.repository
 
-import com.example.trips.Common.api.RetrofitInstance
+import com.example.trips.common.api.RetrofitInstance
 import com.example.trips.Lists.model.List
 import retrofit2.Call
 

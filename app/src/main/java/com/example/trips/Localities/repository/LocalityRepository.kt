@@ -1,6 +1,6 @@
 package com.example.trips.Localities.repository
 
-import com.example.trips.Common.api.RetrofitInstance
+import com.example.trips.common.api.RetrofitInstance
 import com.example.trips.Localities.model.LocalityModel
 import retrofit2.Call
 

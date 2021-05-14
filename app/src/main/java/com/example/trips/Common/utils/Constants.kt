@@ -1,4 +1,4 @@
-package com.example.trips.Common.utils
+package com.example.trips.common.utils
 
 class Constants {
     companion object {

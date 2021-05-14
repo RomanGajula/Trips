@@ -1,4 +1,4 @@
-package com.example.trips.Common.dialog
+package com.example.trips.common.dialog
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog

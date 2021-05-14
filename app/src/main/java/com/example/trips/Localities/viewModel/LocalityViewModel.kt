@@ -1,7 +1,6 @@
 package com.example.trips.Localities.viewModel
 
 import androidx.lifecycle.ViewModel
-import com.example.trips.Common.api.RetrofitInstance
 import com.example.trips.Localities.model.LocalityModel
 import com.example.trips.Localities.repository.LocalityRepository
 import org.koin.core.KoinComponent

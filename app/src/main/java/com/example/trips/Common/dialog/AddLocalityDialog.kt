@@ -1,5 +1,6 @@
-package com.example.trips.Common.dialog
+package com.example.trips.common.dialog
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Build
@@ -47,28 +48,7 @@ class AddLocalityDialog(id: Int) : DialogFragment(), KoinComponent {
                     ) { dialog, item ->
                         checkItem = true
                         selectedItem = items[item]
-                        localityViewModel.getLocalityById(idLocation).enqueue(object : Callback<List<LocalityModel>> {
-                            override fun onFailure(call: Call<List<LocalityModel>>, t: Throwable) {
-                                println(t)
-                            }
-
-                            @RequiresApi(Build.VERSION_CODES.R)
-                            override fun onResponse(call: Call<List<LocalityModel>>, response: Response<List<LocalityModel>>) {
-                                val localityList = response.body()
-                                localityList?.forEach {
-                                    location = LocalityModel(
-                                            it.id,
-                                            it.name,
-                                            it.distance,
-                                            it.tellPastor,
-                                            it.worshipServices,
-                                            it.evangelism,
-                                            it.dateWorshipServices,
-                                            it.dateEvangelism
-                                    )
-                                }
-                            }
-                        })
+                        callGetLocalityById(idLocation, location)
                         if (items[item] != allListRepository.clearDate) {
                             date.show(it.supportFragmentManager, "DateDialog")
                         }
@@ -82,24 +62,7 @@ class AddLocalityDialog(id: Int) : DialogFragment(), KoinComponent {
                             ).show()
                         } else {
                             checkIfElse()
-                            localityViewModel.updateLocality(idLocation,
-                                    LocalityModel(
-                                            idLocation,
-                                            location.name,
-                                            location.distance,
-                                            location.tellPastor,
-                                            location.worshipServices,
-                                            location.evangelism,
-                                            location.dateWorshipServices,
-                                            location.dateEvangelism)).enqueue(object : Callback<LocalityModel> {
-                                override fun onFailure(call: Call<LocalityModel>, t: Throwable) {
-                                    println(t)
-                                }
-
-                                @RequiresApi(Build.VERSION_CODES.R)
-                                override fun onResponse(call: Call<LocalityModel>, response: Response<LocalityModel>) {
-                                }
-                            })
+                            callUpdateLocality(idLocation, location)
                         }
                     }
                     .setNegativeButton("Отмена") { dialog, id ->
@@ -139,6 +102,55 @@ class AddLocalityDialog(id: Int) : DialogFragment(), KoinComponent {
                 location.dateEvangelism = ""
             }
         }
+    }
+
+    fun callGetLocalityById(id: Int, location: LocalityModel) {
+        localityViewModel.getLocalityById(id).enqueue(object : Callback<List<LocalityModel>> {
+            override fun onFailure(call: Call<List<LocalityModel>>, t: Throwable) {
+                println(t)
+            }
+
+            @SuppressLint("SetTextI18n")
+            @RequiresApi(Build.VERSION_CODES.R)
+            override fun onResponse(call: Call<List<LocalityModel>>, response: Response<List<LocalityModel>>) {
+                val localityList = response.body()
+                localityList?.forEach {
+                    location.id = it.id
+                    location.name = it.name
+                    location.distance = it.distance
+                    location.tellPastor = it.tellPastor
+                    location.worshipServices = it.worshipServices
+                    location.evangelism = it.evangelism
+                    location.dateWorshipServices = it.dateWorshipServices
+                    location.dateEvangelism = it.dateEvangelism
+                }
+                DetailsLocationDialog.title.text = location.name
+                DetailsLocationDialog.evangelism.text = "${allListRepository.evangelism}: ${location.evangelism.toString()}"
+                DetailsLocationDialog.distance.text = "Дистанция: ${location.distance.toString()}"
+                DetailsLocationDialog.worshipServices.text = "${allListRepository.worshipServices}: ${location.worshipServices.toString()}"
+            }
+        })
+    }
+
+    fun callUpdateLocality(id: Int, location: LocalityModel) {
+        localityViewModel.updateLocality(id,
+                LocalityModel(
+                        id,
+                        location.name,
+                        location.distance,
+                        location.tellPastor,
+                        location.worshipServices,
+                        location.evangelism,
+                        location.dateWorshipServices,
+                        location.dateEvangelism)).enqueue(object : Callback<LocalityModel> {
+            override fun onFailure(call: Call<LocalityModel>, t: Throwable) {
+                println(t)
+            }
+
+            @RequiresApi(Build.VERSION_CODES.R)
+            override fun onResponse(call: Call<LocalityModel>, response: Response<LocalityModel>) {
+            }
+        })
     }
 
 }

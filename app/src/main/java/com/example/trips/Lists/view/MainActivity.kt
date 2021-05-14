@@ -1,22 +1,14 @@
 package com.example.trips.Lists.view
 
-import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.annotation.RequiresApi
-import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.trips.Common.utils.Constants.Companion.BASE_URL
 import com.example.trips.Lists.adapter.AllListsAdapter
 import com.example.trips.Lists.model.List
 import com.example.trips.Lists.viewmodel.AllListsViewModel
-import com.example.trips.Localities.adapter.LocalityAdapter
-import com.example.trips.Localities.model.LocalityModel
-import com.example.trips.Localities.repository.LocalityRepository
-import com.example.trips.Localities.view.Locality
-import com.example.trips.Localities.viewModel.LocalityViewModel
 import com.example.trips.R
 import com.example.trips.databinding.ActivityMainBinding
 import org.koin.core.KoinComponent

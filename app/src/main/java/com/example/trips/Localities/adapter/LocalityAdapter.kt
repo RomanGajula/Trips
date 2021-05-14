@@ -1,21 +1,13 @@
 package com.example.trips.Localities.adapter
 
 import android.annotation.SuppressLint
-import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.trips.Common.dialog.AddLocalityDialog
-import com.example.trips.Common.dialog.CancelDialog
-import com.example.trips.Lists.adapter.AllListsAdapter
-import com.example.trips.Lists.model.List
-import com.example.trips.Lists.repository.AllListRepository
-import com.example.trips.Lists.view.MainActivity
+import com.example.trips.common.dialog.AddLocalityDialog
+import com.example.trips.common.dialog.DetailsLocationDialog
 import com.example.trips.Localities.model.LocalityModel
-import com.example.trips.Localities.repository.LocalityRepository
-import com.example.trips.Localities.view.Locality
 import com.example.trips.databinding.ListsItemBinding
 import com.example.trips.databinding.LocalityItemBinding
 import org.koin.core.KoinComponent
@@ -34,7 +26,10 @@ class LocalityAdapter : RecyclerView.Adapter<LocalityAdapter.LocalityViewHolder>
             val location = locality[bindingAdapterPosition]
             val view = binding.root
             binding.addInList.setOnClickListener {
-                AddLocalityDialog(location.id!!).show(supportFragmentManager,"AddLocality")
+                AddLocalityDialog(location.id!!).show(supportFragmentManager, "AddLocality")
+            }
+            binding.locality.setOnClickListener {
+                DetailsLocationDialog(location.id!!).show(supportFragmentManager, "DetailsLocation")
             }
         }
     }

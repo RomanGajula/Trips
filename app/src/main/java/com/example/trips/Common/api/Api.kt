@@ -1,4 +1,4 @@
-package com.example.trips.Common.api
+package com.example.trips.common.api
 
 import com.example.trips.Lists.model.List
 import com.example.trips.Localities.model.LocalityModel
