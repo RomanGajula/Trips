@@ -30,6 +30,7 @@ class DetailsLocationDialog(id: Int) : DialogFragment(), KoinComponent {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
+            callGetLocalityById()
             title = TextView(activity)
             worshipServices = TextView(activity)
             evangelism = TextView(activity)
@@ -52,7 +53,6 @@ class DetailsLocationDialog(id: Int) : DialogFragment(), KoinComponent {
     }
 
     private fun setDetailsLocationTitle() : TextView {
-        callGetLocalityById()
         title.textSize = 25.0F
         title.setTextColor(Color.BLACK)
         title.setTypeface(null, Typeface.BOLD)

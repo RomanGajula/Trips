@@ -47,10 +47,10 @@
       "worshipServices": 0
     },
     {
-      "dateEvangelism": "",
+      "dateEvangelism": "4.4.2021",
       "dateWorshipServices": "",
       "distance": 6,
-      "evangelism": 0,
+      "evangelism": 1,
       "id": 6,
       "name": "Добружа",
       "tellPastor": "078309283",

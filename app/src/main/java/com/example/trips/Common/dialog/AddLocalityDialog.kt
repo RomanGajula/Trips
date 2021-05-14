@@ -128,6 +128,8 @@ class AddLocalityDialog(id: Int) : DialogFragment(), KoinComponent {
                 DetailsLocationDialog.evangelism.text = "${allListRepository.evangelism}: ${location.evangelism.toString()}"
                 DetailsLocationDialog.distance.text = "Дистанция: ${location.distance.toString()}"
                 DetailsLocationDialog.worshipServices.text = "${allListRepository.worshipServices}: ${location.worshipServices.toString()}"
+                DetailsLocationDialog.dateEvangelism.text = "Последний раз был: ${location.dateEvangelism.toString()}"
+                DetailsLocationDialog.worshipServices.text = "Последний раз был: ${location.worshipServices.toString()}"
             }
         })
     }
