@@ -17,10 +17,12 @@
       "worshipServices": 1
     },
     {
+      "distance": 15,
+      "evangelism": 0,
       "id": 3,
       "name": "Цапок",
-      "distance": "15",
-      "tellPastor": "078303845"
+      "tellPastor": "078303845",
+      "worshipServices": 0
     },
     {
       "id": 4,

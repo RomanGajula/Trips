@@ -1,17 +1,14 @@
 package com.example.trips.Common.dialog
 
 import android.app.AlertDialog
+import android.app.DatePickerDialog
 import android.app.Dialog
-import android.content.DialogInterface
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.DialogFragment
-import com.example.trips.Lists.view.MainActivity
 import com.example.trips.Localities.model.LocalityModel
-import com.example.trips.Localities.view.Locality
 import com.example.trips.Localities.viewModel.LocalityViewModel
 import org.koin.core.KoinComponent
 import org.koin.core.inject
@@ -19,8 +16,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class AddLocalityDialog(id: Int) : DialogFragment(), KoinComponent {
 
+class AddLocalityDialog(id: Int) : DialogFragment(), KoinComponent {
 
     val localityViewModel: LocalityViewModel by inject()
     private val items = arrayOf("Богослужение", "Евангелизм", "Богослужение и евангелизм", "Очистить существующие данные")
@@ -28,6 +25,11 @@ class AddLocalityDialog(id: Int) : DialogFragment(), KoinComponent {
     var idLocation: Int = id
     lateinit var location: LocalityModel
     var selectedItem = String()
+    var DIALOG_DATE = 1
+    var myYear = 2011
+    var myMonth = 2
+    var myDay = 3
+    var date = DateDialog()
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
@@ -47,12 +49,12 @@ class AddLocalityDialog(id: Int) : DialogFragment(), KoinComponent {
                                 val localityList = response.body()
                                 localityList?.forEach {
                                     location = LocalityModel(
-                                            it?.id,
-                                            it?.name,
-                                            it?.distance,
-                                            it?.tellPastor,
-                                            it?.worshipServices,
-                                            it?.evangelism
+                                            it.id,
+                                            it.name,
+                                            it.distance,
+                                            it.tellPastor,
+                                            it.worshipServices,
+                                            it.evangelism
                                     )
                                 }
                             }
@@ -60,6 +62,7 @@ class AddLocalityDialog(id: Int) : DialogFragment(), KoinComponent {
                     }
                     .setPositiveButton("OK"
                     ) { dialog, id ->
+                        date.show(it.supportFragmentManager, "DateDialog")
                         if (!checkItem) {
                             Toast.makeText(
                                     activity, "Вы ничего не выбрали!",
@@ -100,5 +103,4 @@ class AddLocalityDialog(id: Int) : DialogFragment(), KoinComponent {
             builder.create()
         } ?: throw IllegalStateException("Activity cannot be null")
     }
-
 }
