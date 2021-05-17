@@ -13,14 +13,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Trips">
-        <activity android:name=".Localities.view.Locality">
+        <activity android:name="com.example.trips.localities.view.Locality">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Lists.view.MainActivity">
+        <activity android:name="com.example.trips.list.view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

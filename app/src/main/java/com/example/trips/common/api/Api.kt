@@ -1,7 +1,7 @@
 package com.example.trips.common.api
 
-import com.example.trips.Lists.model.List
-import com.example.trips.Localities.model.LocalityModel
+import com.example.trips.list.model.List
+import com.example.trips.localities.model.LocalityModel
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -9,8 +9,8 @@ import retrofit2.http.*
 interface Api {
 //    @POST("list")
 //    fun addList(
-//            @Body list: com.example.trips.Lists.model.List
-//    ): Call<com.example.trips.Lists.model.List>
+//            @Body list: com.example.trips.list.model.List
+//    ): Call<com.example.trips.list.model.List>
 
     @GET("locality")
     fun getLocality(): Call<MutableList<LocalityModel>>

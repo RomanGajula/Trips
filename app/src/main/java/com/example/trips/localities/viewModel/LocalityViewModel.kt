@@ -1,8 +1,8 @@
-package com.example.trips.Localities.viewModel
+package com.example.trips.localities.viewModel
 
 import androidx.lifecycle.ViewModel
-import com.example.trips.Localities.model.LocalityModel
-import com.example.trips.Localities.repository.LocalityRepository
+import com.example.trips.localities.model.LocalityModel
+import com.example.trips.localities.repository.LocalityRepository
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 import retrofit2.Call

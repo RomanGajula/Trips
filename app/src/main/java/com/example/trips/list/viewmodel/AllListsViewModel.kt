@@ -1,8 +1,8 @@
-package com.example.trips.Lists.viewmodel
+package com.example.trips.list.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.example.trips.Lists.model.List
-import com.example.trips.Lists.repository.AllListRepository
+import com.example.trips.list.model.List
+import com.example.trips.list.repository.AllListRepository
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 import retrofit2.Call

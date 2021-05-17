@@ -1,4 +1,4 @@
-package com.example.trips.Localities.view
+package com.example.trips.localities.view
 
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -6,9 +6,9 @@ import android.os.Bundle
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.trips.Localities.adapter.LocalityAdapter
-import com.example.trips.Localities.model.LocalityModel
-import com.example.trips.Localities.viewModel.LocalityViewModel
+import com.example.trips.localities.adapter.LocalityAdapter
+import com.example.trips.localities.model.LocalityModel
+import com.example.trips.localities.viewModel.LocalityViewModel
 import com.example.trips.R
 import com.example.trips.databinding.ActivityLocalityBinding
 import org.koin.core.KoinComponent

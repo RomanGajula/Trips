@@ -1,4 +1,4 @@
-package com.example.trips.Lists.model
+package com.example.trips.list.model
 
 class List(
     var id: Int? = null,

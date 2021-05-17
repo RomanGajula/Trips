@@ -1,7 +1,7 @@
-package com.example.trips.Localities.repository
+package com.example.trips.localities.repository
 
 import com.example.trips.common.api.RetrofitInstance
-import com.example.trips.Localities.model.LocalityModel
+import com.example.trips.localities.model.LocalityModel
 import retrofit2.Call
 
 class LocalityRepository {

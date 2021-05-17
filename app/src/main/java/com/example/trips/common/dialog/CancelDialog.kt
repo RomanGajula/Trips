@@ -6,7 +6,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
-import com.example.trips.Lists.view.MainActivity
+import com.example.trips.list.view.MainActivity
 
 class CancelDialog : DialogFragment() {
 

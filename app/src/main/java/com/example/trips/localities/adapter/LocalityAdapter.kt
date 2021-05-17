@@ -1,4 +1,4 @@
-package com.example.trips.Localities.adapter
+package com.example.trips.localities.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -7,8 +7,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.trips.common.dialog.AddLocalityDialog
 import com.example.trips.common.dialog.DetailsLocationDialog
-import com.example.trips.Localities.model.LocalityModel
-import com.example.trips.databinding.ListsItemBinding
+import com.example.trips.localities.model.LocalityModel
 import com.example.trips.databinding.LocalityItemBinding
 import org.koin.core.KoinComponent
 

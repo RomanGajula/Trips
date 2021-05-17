@@ -8,10 +8,9 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.DialogFragment
-import com.example.trips.DetailsAdapter
-import com.example.trips.Lists.repository.AllListRepository
-import com.example.trips.Localities.model.LocalityModel
-import com.example.trips.Localities.viewModel.LocalityViewModel
+import com.example.trips.list.repository.AllListRepository
+import com.example.trips.localities.model.LocalityModel
+import com.example.trips.localities.viewModel.LocalityViewModel
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 import retrofit2.Call

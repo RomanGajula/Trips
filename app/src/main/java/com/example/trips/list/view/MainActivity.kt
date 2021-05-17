@@ -1,4 +1,4 @@
-package com.example.trips.Lists.view
+package com.example.trips.list.view
 
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -6,9 +6,9 @@ import android.os.Bundle
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.trips.Lists.adapter.AllListsAdapter
-import com.example.trips.Lists.model.List
-import com.example.trips.Lists.viewmodel.AllListsViewModel
+import com.example.trips.list.adapter.AllListsAdapter
+import com.example.trips.list.model.List
+import com.example.trips.list.viewmodel.AllListsViewModel
 import com.example.trips.R
 import com.example.trips.databinding.ActivityMainBinding
 import org.koin.core.KoinComponent

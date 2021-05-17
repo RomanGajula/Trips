@@ -1,8 +1,4 @@
-package com.example.trips.Localities.model
-
-import com.google.gson.annotations.Expose
-import com.google.gson.annotations.SerializedName
-import java.util.*
+package com.example.trips.localities.model
 
 class LocalityModel(
         var id: Int? = null,

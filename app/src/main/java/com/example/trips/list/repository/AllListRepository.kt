@@ -1,7 +1,7 @@
-package com.example.trips.Lists.repository
+package com.example.trips.list.repository
 
 import com.example.trips.common.api.RetrofitInstance
-import com.example.trips.Lists.model.List
+import com.example.trips.list.model.List
 import retrofit2.Call
 
 class AllListRepository {

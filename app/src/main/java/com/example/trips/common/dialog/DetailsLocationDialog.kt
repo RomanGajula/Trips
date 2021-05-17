@@ -2,19 +2,10 @@ package com.example.trips.common.dialog
 
 import android.app.AlertDialog
 import android.app.Dialog
-import android.graphics.Color
-import android.graphics.Typeface
 import android.os.Bundle
-import android.view.Gravity
-import android.view.LayoutInflater
 import android.widget.TextView
-import androidx.core.view.marginTop
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
-import androidx.navigation.fragment.findNavController
-import com.example.trips.Localities.model.LocalityModel
-import com.example.trips.R
-import com.example.trips.databinding.DetailsItemBinding
+import com.example.trips.localities.model.LocalityModel
 import org.koin.core.KoinComponent
 
 class DetailsLocationDialog(id: Int) : DialogFragment(), KoinComponent {

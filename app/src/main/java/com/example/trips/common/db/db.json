@@ -19,10 +19,10 @@
       "worshipServices": 1
     },
     {
-      "dateEvangelism": "17.4.2021",
+      "dateEvangelism": "",
       "dateWorshipServices": "",
       "distance": 15,
-      "evangelism": 1,
+      "evangelism": 0,
       "id": 3,
       "name": "Цапок",
       "tellPastor": "078303845",

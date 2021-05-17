@@ -1,11 +1,11 @@
-package com.example.trips.Lists.adapter
+package com.example.trips.list.adapter
 
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.trips.Lists.model.List
-import com.example.trips.Localities.view.Locality
+import com.example.trips.list.model.List
+import com.example.trips.localities.view.Locality
 import com.example.trips.databinding.ListsItemBinding
 import org.koin.core.KoinComponent
 
