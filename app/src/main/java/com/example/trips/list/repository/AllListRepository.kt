@@ -5,14 +5,6 @@ import com.example.trips.list.model.List
 import retrofit2.Call
 
 class AllListRepository {
-//    companion object {
-//        var allList = listOf<List>(
-//                List(null, "Все населённые пункты", 355),
-//                List(null, "Евангелизм", 25),
-//                List(null, "Богослужения", 55),
-//                List(null, "Не пройденные населённые пункты", 155)
-//        )
-//    }
     var worshipServices = "Богослужение"
     var evangelism = "Евангелизм"
     var worshipServicesOrEvangelism = "Богослужение и евангелизм"

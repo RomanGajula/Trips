@@ -1,6 +1,7 @@
 package com.example.trips.localities.adapter
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
@@ -8,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.trips.common.dialog.AddLocalityDialog
 import com.example.trips.localities.model.LocalityModel
 import com.example.trips.databinding.LocalityItemBinding
+import com.example.trips.detailsLocaties.view.DetaliesLocalities
+import com.example.trips.list.view.MainActivity
 import org.koin.core.KoinComponent
 
 class LocalityAdapter : RecyclerView.Adapter<LocalityAdapter.LocalityViewHolder>(), KoinComponent {
@@ -27,7 +30,10 @@ class LocalityAdapter : RecyclerView.Adapter<LocalityAdapter.LocalityViewHolder>
                 AddLocalityDialog(location.id!!).show(supportFragmentManager, "AddLocality")
             }
             binding.locality.setOnClickListener {
-//                DetailsLocationDialog(location.id!!).show(supportFragmentManager, "DetailsLocation")
+                val intent = Intent(view.context, DetaliesLocalities::class.java)
+                intent.putExtra("id", location.id.toString())
+                println("--------------> ${location.id.toString()}")
+                view.context.startActivity(intent)
             }
         }
     }

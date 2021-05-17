@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity(), KoinComponent {
     // json-server --watch app/src/main/java/com/example/trips/Common/db/db.json --routes app/src/main/java/com/example/trips/Common/db/routes.json
 
     private val allListsAdapter by lazy { AllListsAdapter() }
-    val allListsViewModel: AllListsViewModel by inject()
+    private val allListsViewModel: AllListsViewModel by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
