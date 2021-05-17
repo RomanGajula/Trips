@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.DialogFragment
+import com.example.trips.DetailsAdapter
 import com.example.trips.Lists.repository.AllListRepository
 import com.example.trips.Localities.model.LocalityModel
 import com.example.trips.Localities.viewModel.LocalityViewModel
@@ -124,12 +125,12 @@ class AddLocalityDialog(id: Int) : DialogFragment(), KoinComponent {
                     location.dateWorshipServices = it.dateWorshipServices
                     location.dateEvangelism = it.dateEvangelism
                 }
-                DetailsLocationDialog.title.text = location.name
-                DetailsLocationDialog.evangelism.text = "${allListRepository.evangelism}: ${location.evangelism.toString()}"
-                DetailsLocationDialog.distance.text = "Дистанция: ${location.distance.toString()}"
-                DetailsLocationDialog.worshipServices.text = "${allListRepository.worshipServices}: ${location.worshipServices.toString()}"
-                DetailsLocationDialog.dateEvangelism.text = "Последний раз был: ${location.dateEvangelism.toString()}"
-                DetailsLocationDialog.worshipServices.text = "Последний раз был: ${location.worshipServices.toString()}"
+//                DetailsLocationDialog.binding.staffTitle.text = location.name.toString()
+//                DetailsLocationDialog.evangelism.text = "${allListRepository.evangelism}: ${location.evangelism.toString()}"
+//                DetailsLocationDialog.distance.text = "Дистанция: ${location.distance.toString()}"
+//                DetailsLocationDialog.worshipServices.text = "${allListRepository.worshipServices}: ${location.worshipServices.toString()}"
+//                DetailsLocationDialog.dateEvangelism.text = "Последний раз был: ${location.dateEvangelism.toString()}"
+//                DetailsLocationDialog.worshipServices.text = "Последний раз был: ${location.worshipServices.toString()}"
             }
         })
     }

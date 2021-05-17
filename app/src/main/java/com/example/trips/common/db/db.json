@@ -1,9 +1,10 @@
 {
   "locality": [
     {
-      "dateEvangelism": "17.4.2021",
+      "dateEvangelism": "",
+      "dateWorshipServices": "17.4.2021",
       "distance": 8,
-      "evangelism": 1,
+      "evangelism": 0,
       "id": 1,
       "name": "Аснашаны",
       "tellPastor": "078322438",
