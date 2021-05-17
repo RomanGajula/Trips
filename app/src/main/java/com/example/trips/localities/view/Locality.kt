@@ -20,7 +20,7 @@ import retrofit2.Response
 class Locality : AppCompatActivity(), KoinComponent {
 
     val localityAdapter by lazy { LocalityAdapter() }
-    val localityViewModel: LocalityViewModel by inject()
+    private val localityViewModel: LocalityViewModel by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

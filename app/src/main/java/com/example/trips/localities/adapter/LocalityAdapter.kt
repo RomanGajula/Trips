@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.trips.common.dialog.AddLocalityDialog
-import com.example.trips.common.dialog.DetailsLocationDialog
 import com.example.trips.localities.model.LocalityModel
 import com.example.trips.databinding.LocalityItemBinding
 import org.koin.core.KoinComponent
@@ -28,7 +27,7 @@ class LocalityAdapter : RecyclerView.Adapter<LocalityAdapter.LocalityViewHolder>
                 AddLocalityDialog(location.id!!).show(supportFragmentManager, "AddLocality")
             }
             binding.locality.setOnClickListener {
-                DetailsLocationDialog(location.id!!).show(supportFragmentManager, "DetailsLocation")
+//                DetailsLocationDialog(location.id!!).show(supportFragmentManager, "DetailsLocation")
             }
         }
     }
