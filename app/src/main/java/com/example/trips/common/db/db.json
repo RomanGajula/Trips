@@ -11,12 +11,14 @@
       "worshipServices": 1
     },
     {
+      "dateEvangelism": "",
+      "dateWorshipServices": "",
       "distance": 60,
-      "evangelism": 1,
+      "evangelism": 0,
       "id": 2,
       "name": "Баронча",
       "tellPastor": "078308377",
-      "worshipServices": 1
+      "worshipServices": 0
     },
     {
       "dateEvangelism": "",

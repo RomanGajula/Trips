@@ -32,7 +32,6 @@ class LocalityAdapter : RecyclerView.Adapter<LocalityAdapter.LocalityViewHolder>
             binding.locality.setOnClickListener {
                 val intent = Intent(view.context, DetaliesLocalities::class.java)
                 intent.putExtra("id", location.id.toString())
-                println("--------------> ${location.id.toString()}")
                 view.context.startActivity(intent)
             }
         }

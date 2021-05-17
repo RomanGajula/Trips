@@ -1,5 +1,6 @@
 package com.example.trips.detailsLocaties.view
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -28,22 +29,29 @@ class DetaliesLocalities : AppCompatActivity(), KoinComponent {
 
         idDetalies = intent.getStringExtra("id")
 
-        println("222--------------> $idDetalies")
-
         detailsViewModel.getLocalityById(idDetalies?.toInt()!!).enqueue(object : Callback<List<LocalityModel>> {
             override fun onFailure(call: Call<List<LocalityModel>>, t: Throwable) {
                 println(t)
             }
 
+            @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<List<LocalityModel>>, response: Response<List<LocalityModel>>) {
                 response.body()?.forEach {
                     binding.name.text = it.name
-                    binding.dateEvangelism.text = it.dateEvangelism
-                    binding.evangelism.text = it.evangelism.toString()
-                    binding.worshipServices.text = it.worshipServices.toString()
-                    binding.dateWorshipServices.text = it.dateWorshipServices
-                    binding.tellPastor.text = it.tellPastor
-                    binding.distance.text = it.distance.toString()
+                    binding.valueWorshipServices.text = it.worshipServices.toString()
+                    if (it.worshipServices != 0) {
+                        binding.dateWorshipServices.text = "(последний раз - ${it.dateWorshipServices})"
+                    } else {
+                        binding.dateWorshipServices.text = ""
+                    }
+                    binding.valueEvangelism.text = it.evangelism.toString()
+                    if (it.evangelism != 0) {
+                        binding.dateEvangelism.text = "(последний раз - ${it.dateEvangelism})"
+                    } else {
+                        binding.dateEvangelism.text = ""
+                    }
+                    binding.valueDistance.text = "${it.distance.toString()} км"
+                    binding.valuePastor.text = it.tellPastor
                 }
             }
         })
